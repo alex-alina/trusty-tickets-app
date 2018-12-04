@@ -14,6 +14,11 @@ class MenuButtons extends PureComponent {
               Logout
             </Link>
           </button>
+          <button>
+            <Link to={`/events/add`}>
+              Add Event
+            </Link>
+          </button>
         </div>
       )
     }
