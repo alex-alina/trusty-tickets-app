@@ -6,6 +6,8 @@ import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import CreateEventPage from './components/events/CreateEventPage'
+import EventDetailsContainer from './components/events/EventDetailsContainer'
+
 
 class App extends Component {
   render() {
@@ -18,6 +20,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/events" component={EventsListContainer} />
             <Route exact path="/events/add" component={CreateEventPage} />
+            <Route path="/events/:id" component={EventDetailsContainer} />
             <Route exact path="/" render={ () => <Redirect to="/events" /> } />
           </main>
         </div>

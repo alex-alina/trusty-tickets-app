@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import MenuButtons from '../menu/MenuButtons';
 import EventsList from './EventsList';
 import { getEvents } from '../../actions/events'
-// import { Redirect } from 'react-router-dom'
 
 class EventsListContainer extends PureComponent {
   componentWillMount() {

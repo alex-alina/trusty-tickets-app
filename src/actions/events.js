@@ -56,36 +56,27 @@ const addEvents = (events) => ({
 
 
 export const getEvents = () => (dispatch) => {
-  // const state = getState()
-  // if (!state.currentUser) return null
-  // const jwt = state.currentUser.jwt
-
-  // if (isExpired(jwt)) return dispatch(logout())
-
   request
     .get(`${baseUrl}/events`)
-    // .set('Authorization', `Bearer ${jwt}`)
     .then(result => 
       dispatch(addEvents(result.body.events)))
     .catch(err => console.error(err))
 }
 
-// const updateUsers = (users) => ({
-//   type: UPDATE_USERS,
-//   payload: users
-// })
+export const ADD_EVENT_DETAILS = 'ADD_EVENT_DETAILS'
 
 
-// export const getUsers = () => (dispatch, getState) => {
-//   const state = getState()
-//   if (!state.currentUser) return null
-//   const jwt = state.currentUser.jwt
 
-//   if (isExpired(jwt)) return dispatch(logout())
+const addEventDetails = (event) => ({
+  type: ADD_EVENT_DETAILS,
+  payload: event
+})
 
-//   request
-//     .get(`${baseUrl}/users`)
-//     .set('Authorization', `Bearer ${jwt}`)
-//     .then(result => dispatch(updateUsers(result.body)))
-//     .catch(err => console.error(err))
-// }
+export const getEvent = (eventId) => (dispatch) => {
+  request
+    .get(`${baseUrl}/events/${eventId}`)
+    .then(response => {
+      dispatch(addEventDetails(response.body))
+    })
+    .catch(console.error)
+}

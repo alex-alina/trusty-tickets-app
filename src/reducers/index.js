@@ -4,6 +4,7 @@ import currentUser from './currentUser'
 import signup from './signup'
 import newEvent from './newEvent'
 import events from './events'
+import eventDetails from './eventDetails'
 
 export default {
   users,
@@ -12,4 +13,5 @@ export default {
   signup,
   newEvent,
   events,
+  eventDetails,
 }

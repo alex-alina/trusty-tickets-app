@@ -22,6 +22,23 @@ class MenuButtons extends PureComponent {
         </div>
       )
     }
+    
+    // if (this.props.currentUser && this.props.currentEvent) {
+    //   return (
+    //     <div>
+    //       <button>
+    //         <Link to={`/logout`}>
+    //           Logout
+    //     </Link>
+    //       </button>
+    //       <button>
+    //         <Link to={`/events/:id/tickets`}>
+    //           Add Ticket
+    //         </Link>
+    //       </button>
+    //     </div>
+    //   )
+    // }
 
     return (
       <div>
@@ -43,6 +60,7 @@ class MenuButtons extends PureComponent {
 
 const mapStateToProps = state => ({
   currentUser: state.currentUser
+  // currentEvent: state.currentEvent
 })
 
 export default withRouter(

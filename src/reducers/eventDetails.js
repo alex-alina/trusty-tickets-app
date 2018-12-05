@@ -1,8 +1,8 @@
-import { ADD_EVENTS } from '../actions/events'
+import { ADD_EVENT_DETAILS } from '../actions/events'
 
 export default (state = null, {type, payload}) => {
   switch (type) {
-    case ADD_EVENTS:
+    case ADD_EVENT_DETAILS:
       return payload
 
     default:
