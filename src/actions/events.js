@@ -8,6 +8,8 @@ export const EVENT_CREATED_FAILED = 'EVENT_CREATED_FAILED'
 export const EMPTY_NEW_EVENT = 'EMPTY_NEW_EVENT'
 
 export const ADD_EVENTS = 'ADD_EVENTS'
+export const ADD_EVENT_DETAILS = 'ADD_EVENT_DETAILS'
+
 
 const eventCreatedSuccess = (event) => ({
   type: EVENT_CREATED_SUCCESS,
@@ -21,6 +23,16 @@ const eventCreatedFailed = (error) => ({
 
 const emptyNewCreatedEvent = () => ({
   type: EMPTY_NEW_EVENT,
+})
+
+const addEvents = (events) => ({
+  type: ADD_EVENTS,
+  payload: events
+})
+
+const addEventDetails = (event) => ({
+  type: ADD_EVENT_DETAILS,
+  payload: event
 })
 
 export const createNewEvent = (name, description, picture, startDate, endDate) => (dispatch, getState) => {
@@ -48,13 +60,6 @@ export const createNewEvent = (name, description, picture, startDate, endDate) =
     })
 }
 
-
-const addEvents = (events) => ({
-  type: ADD_EVENTS,
-  payload: events
-})
-
-
 export const getEvents = () => (dispatch) => {
   request
     .get(`${baseUrl}/events`)
@@ -62,15 +67,6 @@ export const getEvents = () => (dispatch) => {
       dispatch(addEvents(result.body.events)))
     .catch(err => console.error(err))
 }
-
-export const ADD_EVENT_DETAILS = 'ADD_EVENT_DETAILS'
-
-
-
-const addEventDetails = (event) => ({
-  type: ADD_EVENT_DETAILS,
-  payload: event
-})
 
 export const getEvent = (eventId) => (dispatch) => {
   request
