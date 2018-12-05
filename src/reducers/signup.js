@@ -1,5 +1,5 @@
 import {
-  USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED
+  USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED, EMPTY_SIGNUP_SUCCESS
 } from '../actions/users'
 
 export default function (state = {}, { type, payload }) {
@@ -8,6 +8,9 @@ export default function (state = {}, { type, payload }) {
       return {
         success: true
       }
+    
+    case EMPTY_SIGNUP_SUCCESS:
+      return { }
 
     case USER_SIGNUP_FAILED:
       return {

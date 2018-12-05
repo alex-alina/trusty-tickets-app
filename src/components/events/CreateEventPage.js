@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { createNewEvent, emptyNewCreatedEvent } from '../../actions/events'
+import { createNewEvent } from '../../actions/events'
 import { Redirect } from 'react-router-dom'
 import EventForm from './EventForm';
 
@@ -33,4 +33,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default connect(mapStateToProps, { postNewEvent: createNewEvent, emptyNewCreatedEvent })(CreateEventPage)
+export default connect(mapStateToProps, { postNewEvent: createNewEvent })(CreateEventPage)

@@ -13,6 +13,7 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
+export const EMPTY_SIGNUP_SUCCESS = 'EMPTY_SIGNUP_SUCCESS'
 
 export const logout = () => ({
   type: USER_LOGOUT
@@ -35,6 +36,10 @@ const userSignupFailed = (error) => ({
 
 const userSignupSuccess = () => ({
   type: USER_SIGNUP_SUCCESS
+})
+
+export const emptySignupSuccess = () => ({
+  type: EMPTY_SIGNUP_SUCCESS,
 })
 
 // const updateUsers = (users) => ({
@@ -62,6 +67,9 @@ export const signup = (firstName, lastName, email, password, confirmPassword) =>
 		.send({ firstName, lastName, email, password, confirmPassword})
 		.then(result => {
 			dispatch(userSignupSuccess())
+		})
+		.then(result => {
+			dispatch(emptySignupSuccess())
 		})
 		.catch(err => {
 			if (err.status === 400) {
