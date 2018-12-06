@@ -1,10 +1,5 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
-// import {isExpired} from '../jwt'
-
-// export const ADD_USER = 'ADD_USER'
-// export const UPDATE_USER = 'UPDATE_USER'
-// export const UPDATE_USERS = 'UPDATE_USERS'
 
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
@@ -13,6 +8,7 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
+export const EMPTY_SIGNUP_SUCCESS = 'EMPTY_SIGNUP_SUCCESS'
 
 export const logout = () => ({
   type: USER_LOGOUT
@@ -37,10 +33,9 @@ const userSignupSuccess = () => ({
   type: USER_SIGNUP_SUCCESS
 })
 
-// const updateUsers = (users) => ({
-//   type: UPDATE_USERS,
-//   payload: users
-// })
+export const emptySignupSuccess = () => ({
+  type: EMPTY_SIGNUP_SUCCESS,
+})
 
 export const login = (email, password) => (dispatch) =>
 	request
@@ -63,6 +58,9 @@ export const signup = (firstName, lastName, email, password, confirmPassword) =>
 		.then(result => {
 			dispatch(userSignupSuccess())
 		})
+		.then(result => {
+			dispatch(emptySignupSuccess())
+		})
 		.catch(err => {
 			if (err.status === 400) {
 				dispatch(userSignupFailed(err.response.body.message))
@@ -72,16 +70,3 @@ export const signup = (firstName, lastName, email, password, confirmPassword) =>
 			}
 		})
 
-// export const getUsers = () => (dispatch, getState) => {
-//   const state = getState()
-//   if (!state.currentUser) return null
-//   const jwt = state.currentUser.jwt
-
-//   if (isExpired(jwt)) return dispatch(logout())
-
-//   request
-//     .get(`${baseUrl}/users`)
-//     .set('Authorization', `Bearer ${jwt}`)
-//     .then(result => dispatch(updateUsers(result.body)))
-//     .catch(err => console.error(err))
-// }
