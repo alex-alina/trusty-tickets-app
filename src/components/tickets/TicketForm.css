@@ -1,0 +1,7 @@
+.ticket-form label {
+  display: block;
+}
+.ticket-form input {
+  margin: 5px;
+  padding: 3px;
+}

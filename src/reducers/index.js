@@ -5,6 +5,8 @@ import signup from './signup'
 import newEvent from './newEvent'
 import events from './events'
 import eventDetails from './eventDetails'
+import newTicket from './newTicket'
+import tickets from './tickets'
 
 export default {
   users,
@@ -14,4 +16,6 @@ export default {
   newEvent,
   events,
   eventDetails,
+  newTicket,
+  tickets,
 }

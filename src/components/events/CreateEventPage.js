@@ -6,7 +6,6 @@ import EventForm from './EventForm';
 
 class CreateEventPage extends PureComponent {
 
-
   handleSubmit = (data) => {
     this.props.postNewEvent(data.name, data.description, data.picture, data.startDate, data.endDate)
   }
@@ -19,9 +18,7 @@ class CreateEventPage extends PureComponent {
     return (
       <div>
         <h1>Create New Event</h1>
-
-          <EventForm onSubmit={this.handleSubmit} />
-
+        <EventForm onSubmit={this.handleSubmit} />
       </div>
     )
   }

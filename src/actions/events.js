@@ -1,7 +1,5 @@
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
-// import { logout } from './users'
-// import {isExpired} from '../jwt'
 
 export const EVENT_CREATED_SUCCESS = 'EVENT_CREATED_SUCCESS'
 export const EVENT_CREATED_FAILED = 'EVENT_CREATED_FAILED'
@@ -49,6 +47,9 @@ export const createNewEvent = (name, description, picture, startDate, endDate) =
     })
     .then(result => {
       dispatch(emptyNewCreatedEvent())
+    })
+    .then(() => {
+      dispatch(getEvents())
     })
     .catch(err => {
       if (err.status === 400) {
