@@ -65,7 +65,7 @@ export const createNewEvent = (name, description, picture, startDate, endDate) =
 export const getEvents = () => (dispatch) => {
   request
     .get(`${baseUrl}/events`)
-    .then(result => 
+    .then(result =>
       dispatch(addEvents(result.body.events)))
     .catch(err => console.error(err))
 }

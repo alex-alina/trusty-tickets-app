@@ -78,6 +78,7 @@ export const getTicket = (eventId, ticketId) => (dispatch) => {
   request
     .get(`${baseUrl}/events/${eventId}/tickets/${ticketId}`)
     .then(response => {
+      console.log(response.body, 'rere')
       dispatch(addTicketDetails(response.body))
     })
     .catch(console.error)

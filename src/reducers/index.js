@@ -7,6 +7,8 @@ import events from './events'
 import eventDetails from './eventDetails'
 import newTicket from './newTicket'
 import completeTickets from './completeTickets'
+import ticketDetails from './ticketDetails'
+
 
 export default {
   users,
@@ -18,4 +20,5 @@ export default {
   eventDetails,
   newTicket,
   completeTickets,
+  ticketDetails,
 }
