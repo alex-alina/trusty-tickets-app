@@ -6,7 +6,7 @@ export const TICKET_CREATED_FAILED = 'TICKET_CREATED_FAILED'
 export const EMPTY_NEW_TICKET = 'EMPTY_NEW_TICKET'
 
 export const ADD_TICKETS = 'ADD_TICKETS'
-export const ADD_EVENT_DETAILS = 'ADD_EVENT_DETAILS'
+export const ADD_TICKET_DETAILS = 'ADD_TICKET_DETAILS'
 
 
 const ticketCreatedSuccess = (ticket) => ({
@@ -28,10 +28,10 @@ const addTickets = (tickets) => ({
   payload: tickets
 })
 
-// const addTicketDetails = (ticket) => ({
-//   type: ADD_TICKET_DETAILS,
-//   payload: ticket
-// })
+const addTicketDetails = (ticket) => ({
+  type: ADD_TICKET_DETAILS,
+  payload: ticket
+})
 
 export const createNewTicket = (price, description, picture) => (dispatch, getState) => {
   const state = getState()
@@ -74,11 +74,11 @@ export const getTickets = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-// export const getEvent = (eventId) => (dispatch) => {
-//   request
-//     .get(`${baseUrl}/events/${eventId}`)
-//     .then(response => {
-//       dispatch(addEventDetails(response.body))
-//     })
-//     .catch(console.error)
-// }
+export const getTicket = (eventId, ticketId) => (dispatch) => {
+  request
+    .get(`${baseUrl}/events/${eventId}/tickets/${ticketId}`)
+    .then(response => {
+      dispatch(addTicketDetails(response.body))
+    })
+    .catch(console.error)
+}

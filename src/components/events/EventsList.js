@@ -6,7 +6,7 @@ export default function EventsList(props) {
     <ul>
       {props.events.map(event =>
         <li key={event.id}>
-          <Link to={`events/${event.id}`}>
+          <Link to={`/events/${event.id}`}>
             {event.name}: Start Date ({event.startDate}) - End Date ({event.endDate})
           </Link>
         </li>)}

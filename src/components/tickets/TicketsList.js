@@ -14,9 +14,9 @@ export default function TicketsList(props) {
 
         .map(ticket =>
           <li key={ticket.id}>
-            <Link to={`events/${ticket.socialEvent.id}/tickets/${ticket.id}`}>
+            <Link to={`/events/${ticket.socialEvent.id}/tickets/${ticket.id}`}>
               {ticket.user.firstName} {ticket.user.lastName}: ({ticket.price})€, ({ticket.description})
-          </Link>
+            </Link>
           </li>)}
     </ul>
   )

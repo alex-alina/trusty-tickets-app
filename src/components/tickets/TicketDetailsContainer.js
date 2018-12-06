@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 // import TicketsList from '../tickets/TicketsList';
 import { getTicket } from '../../actions/tickets'
 // import { getEvent } from '../../actions/events'
-import EventDetailsMenu from './EventDetailsMenu';
+import EventDetailsMenu from '../events/EventDetailsMenu';
 
-class EventDetailsContainer extends PureComponent {
+class TicketDetailsContainer extends PureComponent {
   componentWillMount() {
-    // if (this.props.eventDetails === null) this.props.getEvent(Number(this.props.match.params.id))
-    if (this.props.tickets === null) this.props.getTicket()
+    if (this.props.tickets === null) this.props.getTicket(Number(this.props.match.params.id), Number(this.props.match.params.ticketId))
   }
 
   render() {
@@ -36,10 +35,10 @@ class EventDetailsContainer extends PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    // eventDetails: state.eventDetails,
+    eventDetails: state.eventDetails,
     tickets: state.completeTickets,
   }
 }
 
-export default connect(mapStateToProps, { getTicket })(EventDetailsContainer)
+export default connect(mapStateToProps, { getTicket })(TicketDetailsContainer)
 
