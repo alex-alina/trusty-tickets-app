@@ -1,19 +1,23 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom';
-import './TicketList.css'
 
 export default function TicketsList(props) {
+
   return (
-    // <h1>hello</h1>
     <ul>
-      {props.tickets.map(ticket =>
-        <li key={ticket.id}>
-          <Link to={`events/${props.eventDetails.id}/tickets/${ticket.id}`}>
-            {/*ticket.authname*/}author: ({ticket.price})€, ({ticket.description}), {ticket.risk}
+      {props.tickets
+        .filter(ticket => {
+          const eventId = props.eventDetails.id
+          console.log('evId', eventId)
+          return ticket.socialEvent.id === eventId
+        })
+
+        .map(ticket =>
+          <li key={ticket.id}>
+            <Link to={`events/${ticket.socialEvent.id}/tickets/${ticket.id}`}>
+              {ticket.user.firstName} {ticket.user.lastName}: ({ticket.price})€, ({ticket.description})
           </Link>
-        </li>)}
+          </li>)}
     </ul>
   )
 }
-
-// tickets={this.props.tickets} eventDetails={this.props.eventDetails

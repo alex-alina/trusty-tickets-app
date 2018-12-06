@@ -28,9 +28,9 @@ const addTickets = (tickets) => ({
   payload: tickets
 })
 
-// const addEventDetails = (event) => ({
-//   type: ADD_EVENT_DETAILS,
-//   payload: event
+// const addTicketDetails = (ticket) => ({
+//   type: ADD_TICKET_DETAILS,
+//   payload: ticket
 // })
 
 export const createNewTicket = (price, description, picture) => (dispatch, getState) => {
@@ -64,11 +64,13 @@ export const createNewTicket = (price, description, picture) => (dispatch, getSt
 
 export const getTickets = () => (dispatch, getState) => {
   const state = getState()
+  if (!state.eventDetails) return null
   const eventId = state.eventDetails.id
   request
-    .get(`${baseUrl}/events${eventId}/tickets`)
-    .then(result => 
-      dispatch(addTickets(result.body)))
+    .get(`${baseUrl}/events/${eventId}/tickets`)
+    .then(result => {
+      dispatch(addTickets(result.body))
+    })
     .catch(err => console.error(err))
 }
 

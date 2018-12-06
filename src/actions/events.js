@@ -1,5 +1,6 @@
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
+import { getTickets } from './tickets'
 
 export const EVENT_CREATED_SUCCESS = 'EVENT_CREATED_SUCCESS'
 export const EVENT_CREATED_FAILED = 'EVENT_CREATED_FAILED'
@@ -73,7 +74,11 @@ export const getEvent = (eventId) => (dispatch) => {
   request
     .get(`${baseUrl}/events/${eventId}`)
     .then(response => {
+      console.log('response from server', response)
       dispatch(addEventDetails(response.body))
+    })
+    .then(() => {
+      dispatch(getTickets())
     })
     .catch(console.error)
 }
