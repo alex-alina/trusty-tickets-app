@@ -16,7 +16,7 @@ class TicketDetailsContainer extends PureComponent {
       <div>
         <EventDetailsMenu />
         <h1>Ticket from {this.props.ticket.user.firstName}</h1>
-        <h3>The risk of this ticket being a fraud is: {this.props.ticket.risk}%</h3>
+        <h3>The risk of this ticket being a fraud is: {Math.floor(this.props.ticket.risk)}%</h3>
         <h4>{this.props.ticket.price}€</h4>
         <p>Event: {this.props.ticket.socialEvent.name}</p>
         <p>Ticket description: {this.props.ticket.description}</p>

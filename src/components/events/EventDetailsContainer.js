@@ -8,7 +8,7 @@ import EventDetailsMenu from './EventDetailsMenu';
 
 class EventDetailsContainer extends PureComponent {
   componentWillMount() {
-    if (this.props.eventDetails === null) this.props.getEvent(Number(this.props.match.params.id))
+    this.props.getEvent(Number(this.props.match.params.id))
     if (this.props.tickets === null) this.props.getTickets()
   }
 
