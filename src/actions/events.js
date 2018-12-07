@@ -74,7 +74,6 @@ export const getEvent = (eventId) => (dispatch) => {
   request
     .get(`${baseUrl}/events/${eventId}`)
     .then(response => {
-      console.log('response from server', response)
       dispatch(addEventDetails(response.body))
     })
     .then(() => {
