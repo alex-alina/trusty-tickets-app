@@ -8,7 +8,6 @@ export default function TicketsList(props) {
       {props.tickets
         .filter(ticket => {
           const eventId = props.eventDetails.id
-          console.log('evId', eventId)
           return ticket.socialEvent.id === eventId
         })
 
