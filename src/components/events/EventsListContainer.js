@@ -5,7 +5,7 @@ import EventsList from './EventsList';
 import { getEvents } from '../../actions/events'
 
 class EventsListContainer extends PureComponent {
-  componentWillMount() {
+  componentDidMount() {
     if(this.props.events === null) this.props.getEvents()
     
   }
@@ -14,8 +14,8 @@ class EventsListContainer extends PureComponent {
     if (!this.props.events) return 'Loading events ...'
     return (
       <div>
-        <h1>Events</h1>
         <MenuButtons />
+        <h1>Events</h1>
         <EventsList events={this.props.events} />
       </div>
     )

@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import TicketsList from '../tickets/TicketsList';
 import { getTickets } from '../../actions/tickets'
 import { getEvent } from '../../actions/events'
+import { login } from '../../actions/users'
 import EventDetailsMenu from './EventDetailsMenu';
 
 class EventDetailsContainer extends PureComponent {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getEvent(Number(this.props.match.params.id))
     if (this.props.tickets === null) this.props.getTickets()
   }
@@ -23,15 +24,11 @@ class EventDetailsContainer extends PureComponent {
         <h1>Event: {this.props.eventDetails.name}</h1>
         <p>Start Date: {this.props.eventDetails.startDate}</p>
         <p>End Date: {this.props.eventDetails.endDate}</p>
-        <h2>Tickets Available</h2>
+        <h2>Available Tickets</h2>
 
-        <TicketsList tickets={this.props.tickets} eventDetails={this.props.eventDetails} />
-
-        <button>
-          <Link to={`/tickets-add`}>
-            Add Ticket
-          </Link>
-        </button>
+        <TicketsList tickets={this.props.tickets.tickets} eventDetails={this.props.eventDetails} />
+        { this.props.currentUser !== null ? <button><Link to={`/tickets-add`}>Add Ticket</Link></button> : <button><Link to={`/login`}>Add Ticket</Link></button>}
+        
 
         <button>
           <Link to={`/`}>
@@ -47,8 +44,9 @@ const mapStateToProps = function (state) {
   return {
     eventDetails: state.eventDetails,
     tickets: state.completeTickets,
+    currentUser: state.currentUser
   }
 }
 
-export default connect(mapStateToProps, { getEvent, getTickets })(EventDetailsContainer)
+export default connect(mapStateToProps, { getEvent, getTickets, login })(EventDetailsContainer)
 
