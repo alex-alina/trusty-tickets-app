@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import MenuButtons from '../menus/MenuButtons';
 import EventsList from './EventsList';
 import { getEvents } from '../../actions/events'
 import AddEventBtn from '../buttons/AddEventBtn';
@@ -11,11 +10,9 @@ class EventsListContainer extends PureComponent {
   }
 
   render() {
-    console.log(this.props.events)
     if (!this.props.events) return 'Loading events ...'
     return (
       <div>
-        <MenuButtons />
         <h1>Events</h1>
         <EventsList events={this.props.events} />
         { this.props.currentUser ? <AddEventBtn /> : <p>Signup or Login to add events</p>} 
