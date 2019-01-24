@@ -9,6 +9,7 @@ import CreateEventPage from './components/events/CreateEventPage'
 import EventDetailsContainer from './components/events/EventDetailsContainer'
 import CreateTicketPage from './components/tickets/CreateTicketPage';
 import TicketDetailsContainer from './components/tickets/TicketDetailsContainer';
+import NavBarContainer from './components/menus/NavBarContainer';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
 <Router>
         <div>
           <main style={{marginTop:75}}>
+            <NavBarContainer />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />

@@ -2,3 +2,6 @@
   text-align: center;
 }
 
+:global(li) {
+  list-style-type: none;
+}
