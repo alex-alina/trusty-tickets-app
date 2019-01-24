@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { getTicket } from '../../actions/tickets'
-import EventDetailsMenu from '../events/EventDetailsMenu';
 
 class TicketDetailsContainer extends PureComponent {
   componentDidMount() {
@@ -14,7 +13,6 @@ class TicketDetailsContainer extends PureComponent {
 
     return (
       <div>
-        <EventDetailsMenu />
         <h1>Ticket from {this.props.ticket.user.firstName}</h1>
         <h3>The risk of this ticket being a fraud is: {Math.floor(this.props.ticket.risk)}%</h3>
         <h4>{this.props.ticket.price}€</h4>
