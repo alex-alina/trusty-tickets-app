@@ -1,22 +1,24 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import MenuButtons from '../menu/MenuButtons';
+import MenuButtons from '../menus/MenuButtons';
 import EventsList from './EventsList';
 import { getEvents } from '../../actions/events'
+import AddEventBtn from '../buttons/AddEventBtn';
 
 class EventsListContainer extends PureComponent {
   componentDidMount() {
     if(this.props.events === null) this.props.getEvents()
-    
   }
 
   render() {
+    console.log(this.props.events)
     if (!this.props.events) return 'Loading events ...'
     return (
       <div>
         <MenuButtons />
         <h1>Events</h1>
         <EventsList events={this.props.events} />
+        { this.props.currentUser ? <AddEventBtn /> : <p>Signup or Login to add events</p>} 
       </div>
     )
   }
@@ -24,7 +26,8 @@ class EventsListContainer extends PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    events: state.events
+    events: state.events,
+    currentUser: state.currentUser
   }
 }
 
