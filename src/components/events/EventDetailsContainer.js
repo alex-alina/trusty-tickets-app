@@ -5,7 +5,6 @@ import TicketsList from '../tickets/TicketsList';
 import { getTickets } from '../../actions/tickets'
 import { getEvent } from '../../actions/events'
 import { login } from '../../actions/users'
-// import EventDetailsMenu from './EventDetailsMenu';
 
 class EventDetailsContainer extends PureComponent {
   componentDidMount() {
@@ -19,8 +18,6 @@ class EventDetailsContainer extends PureComponent {
 
     return (
       <div>
-        {/* <EventDetailsMenu /> */}
-
         <h1>Event: {this.props.eventDetails.name}</h1>
         <p>Start Date: {this.props.eventDetails.startDate}</p>
         <p>End Date: {this.props.eventDetails.endDate}</p>
