@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import EventsList from './EventsList';
 import { getEvents } from '../../actions/events'
 import AddEventBtn from '../buttons/AddEventBtn';
+import './EventsListContainer.css';
 
 class EventsListContainer extends PureComponent {
   componentDidMount() {
@@ -13,9 +14,9 @@ class EventsListContainer extends PureComponent {
     if (!this.props.events) return 'Loading events ...'
     return (
       <div>
-        <h1>Events</h1>
+        <h2 className="main-title">Events</h2>
         <EventsList events={this.props.events} />
-        { this.props.currentUser ? <AddEventBtn /> : <p>Signup or Login to add events</p>} 
+        { this.props.currentUser ? <AddEventBtn /> : <p className="add-event">Signup or Login to Add Events</p>} 
       </div>
     )
   }
