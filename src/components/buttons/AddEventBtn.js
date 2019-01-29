@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import './AddEventBtn.css'
 
 const styles = theme => ({
   button: {
@@ -16,9 +17,11 @@ function AddEventBtn(props) {
   const { classes } = props;
 
   return (
-    <Button variant="contained" color="primary" href="/events-add" className={classes.button}>
-      Add Event
+    <div className="add-btn-container">
+      <Button variant="contained" color="primary" href="/events-add" className={classes.button} fullWidth={true}>
+        Add Event
     </Button>
+    </div>
   )
 }
 

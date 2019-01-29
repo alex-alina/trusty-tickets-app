@@ -29,6 +29,7 @@ const styles = theme => ({
   },
   card: {
     height: '100%',
+    minHeight: 470,
     display: 'flex',
     width: 340,
     margin: 20,
@@ -47,8 +48,7 @@ function EventsList(props) {
   const { classes } = props;
   const events = props.events;
   return (
-    <React.Fragment>
-      <CssBaseline />
+    
       <div className={classNames(classes.layout, classes.cardGrid)}>
         <Grid container spacing={40}>
           {events.map(event => (
@@ -65,13 +65,14 @@ function EventsList(props) {
                   <Typography gutterBottom variant="h5" component="h2">
                     {event.name}
                   </Typography>
-                  <Typography component="p">
+                  <Typography variant="body1" component="p">
                     {event.description}
                   </Typography>
-                  <Typography component="p">
+                  <br />
+                  <Typography variant="subtitle2" component="p">
                     Starts: {event.startDate}
                   </Typography>
-                  <Typography component="p">
+                  <Typography variant="subtitle2" component="p">
                     Ends: {event.endDate}
                   </Typography>
                 </CardContent>
@@ -87,7 +88,6 @@ function EventsList(props) {
           ))}
         </Grid>
       </div>
-    </React.Fragment>
   );
 }
 

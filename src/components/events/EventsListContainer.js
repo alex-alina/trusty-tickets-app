@@ -14,7 +14,7 @@ class EventsListContainer extends PureComponent {
     if (!this.props.events) return 'Loading events ...'
     return (
       <div>
-        <h2 className="main-title">Events</h2>
+        <h1 className="main-title">Events</h1>
         <EventsList events={this.props.events} />
         { this.props.currentUser ? <AddEventBtn /> : <p className="add-event">Signup or Login to Add Events</p>} 
       </div>
