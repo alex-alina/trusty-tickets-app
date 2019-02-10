@@ -5,6 +5,7 @@ import TicketsList from '../tickets/TicketsList';
 import { getTickets } from '../../actions/tickets'
 import { getEvent } from '../../actions/events'
 import { login } from '../../actions/users'
+import  BackBtn  from '../buttons/BackBtn'
 
 class EventDetailsContainer extends PureComponent {
   componentDidMount() {
@@ -18,20 +19,22 @@ class EventDetailsContainer extends PureComponent {
 
     return (
       <div>
+        <BackBtn linkTo={"/"}></BackBtn> 
         <h1>Event: {this.props.eventDetails.name}</h1>
         <p>Start Date: {this.props.eventDetails.startDate}</p>
         <p>End Date: {this.props.eventDetails.endDate}</p>
+        {/* add conditional - if there are no tickets - say smth like "There are no tickets for this event" */}
         <h2>Available Tickets</h2>
 
         <TicketsList tickets={this.props.tickets.tickets} eventDetails={this.props.eventDetails} />
         { this.props.currentUser !== null ? <button><Link to={`/tickets-add`}>Add Ticket</Link></button> : <button><Link to={`/login`}>Add Ticket</Link></button>}
-        
 
-        <button>
+        
+        {/* <button>
           <Link to={`/`}>
             Back
           </Link>
-        </button>
+        </button> */}
       </div>
     )
   }
