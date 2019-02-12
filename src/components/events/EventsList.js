@@ -57,7 +57,7 @@ function EventsList(props) {
                 <CardMedia
                   className={classes.media}
                   image={event.picture}
-                  title="Contemplative Reptile"
+                  title="Event details"
                 />
               </Link>
               <CardContent>
