@@ -26,9 +26,13 @@ The app has a login and signup page for customers.
 * Users need to login to create events, tickets and comments. 
 * Anybody can view events, tickets and comments, but users need to be logged in to add them.
 The main page displays a list of events that have a name, description, picture and start/end date. 
-Clicking on an event shows a user to a list of tickets available for that event. 
-A ticket has an author, price, description and picture (optional).
-Clicking on a ticket shows a user the details of that ticket and which event it's for. On this page customers can also add comments. 
+
+Clicking on an event shows a list of tickets available for that event. 
+
+A ticket has an author, price, description and picture.
+
+Clicking on a ticket shows the details of that ticket and which event it's for. On this page customers can also add comments.
+
 A comment on a ticket has an author and some text. 
 
 ## Setup
@@ -38,7 +42,8 @@ A comment on a ticket has an author and some text.
 
 ## Motivation
 My goal is to finish this project as part of effective practice with building and deploying a full stack app.
-#####Practice goals:
+
+**Practice goals:**
 * Experimenting and learning Material-UI 
 * Practising with implementing user stories and styling. 
 
